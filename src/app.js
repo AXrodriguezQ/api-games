@@ -4,6 +4,7 @@ import cors from "cors"
 import mongoose from "mongoose"
 import { DB_URL } from "./config.js"
 import rutasJuegos from "./Routes/Juegos.routes.js"
+import rutasAuth from "./Routes/Auth.routes.js"
 
 const conexion = DB_URL
 
@@ -15,6 +16,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.static('public'))
 app.use(rutasJuegos)
+app.use(rutasAuth)
 
 app.use( (req, res) => {
   res.status(404).send({
